@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Diabetes-unnoficial</title>
+    </head>
+
+    <style>
+
+        body {
+            font-family: monospace;
+            background-color: cornsilk;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 0;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #middle_row {
+            display: flex;
+            justify-content: center; /* Center the three elements horizontally */
+            align-items: center; /* Align them vertically in the row */
+            height: 40%;
+            width: 100%;
+        }
+
+        #left_middle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            height: 100%;
+            background-color: #03AC13;
+            font-size: 30px;
+        }
+
+        #middle_middle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            height: 100%;
+            background-color:#59260B ;
+            font-size: 50px;
+            color: white;
+        }
+
+        #right_middle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            height: 100%;
+            background-color: #B0FC38;
+            font-size: 30px;
+        }
+
+        .expanded {
+            animation: expand 0.5s forwards;
+            color: transparent;
+        }
+
+        p {
+            font-size: 10px;
+        }
+        
+        @keyframes expand {
+            0% {
+                position: absolute;
+                width: 30%; /* Initial width */
+                height: 40%; /* Initial height */
+            }
+            100% {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .expanded-content {
+            display: none;
+        }
+
+        #title, #description {
+            margin-left: 20vh;
+        }
+
+        #description {
+        width: 800px;
+        font-size: 20px;
+        }
+
+        li {
+            width: 600px;
+        }
+
+        #top_middle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30%;
+            width: 40%;
+            background-color: #99EDC3;
+            font-size: 30px;
+        }
+
+        #bottom_middle {
+            display: flex;
+            background-color: olive;
+            height: 30%;
+            width: 40%;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+    </style>
+
+    <body>
+
+        <div id="container">
+            <div id="top_middle" onclick="expandSquare(this)">Treatment and related conditions.</div>
+            <div id="middle_row">
+                <div id="left_middle" onclick="expandSquare(this)">Diabetes type 1</div>
+                <div id="middle_middle">Diabetes Mellitus</div>
+                <div id="right_middle" onclick="expandSquare(this)">Diabetes type 2</div>
+            </div>
+            <div id="bottom_middle" onclick="expandSquare(this)">Please note that this is not professional it is a school project. If concerned please contact a GP. You can and should do further reading in sites listed here.</div>
+            
+        </div>
+        <div class="expanded-content" id="expanded_content">
+            <h1 id="title">title</h1>
+            <p id="description">description</p>
+        </div>
+    </div> <script>
+                function expandSquare(element) {
+                    const color = window.getComputedStyle(element).backgroundColor;
+                    element.classList.add('expanded');
+
+                    setTimeout(() => {
+                        element.style.backgroundColor = color;
+                        document.body.style.backgroundColor = color; // Fix for background color
+
+                        // Hide the container and show the expanded content
+                        document.getElementById("container").style.display = "none";
+                        document.getElementById("expanded_content").style.display = "block";
+
+                        // Update title and description dynamically
+                        if (element.id === 'left_middle') {
+                            document.getElementById("title").innerHTML = "Type 1 Diabetes";
+                            document.getElementById("description").innerHTML = "<br><br>Type 1 Diabetes is a chronic autoimmune condition. It is purely genetic, and involves immune cells needlessly and detrimentally attacking insulin producing beta cells in the pancreas. This leads to a lack of, or significant decrease in, insulin production. Ultimately this is what causes type 1 Diabetes.<br><br>Insulin is a hormone produced by pancreatic beta cells, upon detecting high blood glucose (sugar), the beta cells will produce/secrete it. Insulin is a peptide hormone (just like FSH) which means it cannot pass through the cell membrane. The way that it interacts with cells is by binding to receptors on the surface. Insulin will bind to insulin receptors on cell membrane surfaces, which opens the glucose channel. This allows glucose from the blood into the cells, allowing for blood sugar to decrease and playing a crucial role in homeostasis.<br><br>There are four main symptoms that tell of type one Diabetes.<br><ul><li>Polyuria - people with type one diabetes often find themselves in need of relief more often than others. This is called Polyuria, the excessive production of urine. It occurs because, due to the excess glucose in blood, the kidneys can't filter it all out when producing urine. This glucose then draws in water via osmosis, due to the concentration difference.</li><br><li>Polydipsia - Polydipsia is excess thirst, and is often associated with dizziness, fatigue, and other such signs of dehydration. In relation to diabetes mellitus, it is caused by the polyuria, where more water is drawn out of the body.</li><br><li>Fatigue - The lack of insulin means that there is nothing to bind to insulin receptors, and therefore the glucose channels don't open. Because of this glucose can't enter the cells, meaning that they don't have the energy to function properly.</li><br><li>Weight loss - Due to the lack of insulin entering cells, they begin to starve. This makes the body break down tissue (especially fat and muscle) to gain energy alternatively. Not to mention that the polyuria causes large amounts of fluid to be lost, decreasing water weight.</li><br><br>These are the main systems but there are a few more less common ones:<br><br><li>Blurry vision - In type 1 diabetes there is higher blood sugar, this includes in the lens of the eye. Water likes balance and so moves from an area of low concentration of glucose (the aqueous humour in this case) to the area of high concentration of glucose (the lens / retina) to equivocate the solute concentrations.</li><br><li>Fruity / sweet smelling breath - When Glucose cannot enter cells the body begins to perform ketogenesis, which starts breaking down fat cells (adipocytes). This produces ketones, an alternate source of energy for the body, which create that fruity smell, which may be a bit like nail varnish.</li><br><li>Wounds and cuts taking longer to heal - If you have type 1 diabetes, you might notice that any injuries you happen to get take longer to heal. This is because it causes narrowing of blood vessels, reducing circulation and as such access to oxygen and nutrients. Not to mention that the higher blood sugar impairs white blood cells, which help make new blood vessels and collagen.</li><br><li>Increased infections - Type 1 diabetes can increase the number of infections you contract. This is because the higher sugar can make it easier for yeast to grow (increasing chances of thrush for example) and it suppresses white blood cell functions, including phagocytosis, a major defence system for your body.</li><br><br>These symptoms are very similar to those in Type 2 diabetes, however they typically develop faster (a few days to weeks) and earlier in life, whereas type 2 diabetes develops later in life, and slower.<br><br>Because diabetes type 1 is genetic you are more likely to contract it, if it is present in your family. Type 1 diabetes development is most strongly associated with the HLA (human leukocyte Antigen) genes, which make up over half of associated DNA. The exact genetic science however, is still a mystery.";
+                        } 
+                        else if (element.id === 'right_middle') {
+                            document.getElementById("title").innerHTML = "Type 2 diabetes";
+                            document.getElementById("description").innerHTML = "<br><br>Type 2 diabetes is a long term condition where one is unable to regulate blood sugar (glucose) properly. It involves a lack of sufficient insulin production, or the cells developing insulin resistance and not responding properly to it. Insulin resistance is more commonly the dominant cause. Unfortunately, it's causes are not well understood, however it has genetic links, along with some to abdominal fat, steroid drug use, endocrine disorder, poor diet and lack of activity. This can lead to pancreatic beta cells trying to produce more insulin and in the process causing harm to themself.<br><br>Insulin is a hormone produced by pancreatic beta cells, upon detecting high blood glucose (sugar), the beta cells will produce/secrete it. Insulin is a peptide hormone (just like FSH) which means it cannot pass through the cell membrane. The way that it interacts with cells is by binding to receptors on the surface. Insulin will bind to insulin receptors on cell membrane surfaces, which opens the glucose channel. This allows glucose from the blood into the cells, allowing for blood sugar to decrease and playing a crucial role in homeostasis.<br><br>There are four main symptoms that tell of type two Diabetes.<br><ul><li>Polyuria - people with type one diabetes often find themselves in need of relief more often than others. This is called Polyuria, the excessive production of urine. It occurs because, due to the excess glucose in blood, the kidneys can't filter it all out when producing urine. This glucose then draws in water via osmosis, due to the concentration difference.</li><br><li>Polydipsia - Polydipsia is excess thirst, and is often associated with dizziness, fatigue, and other such signs of dehydration. In relation to diabetes mellitus, it is caused by the polyuria, where more water is drawn out of the body.</li><br><li>Fatigue - The lack of insulin means that there is nothing to bind to insulin receptors, and therefore the glucose channels don't open. Because of this glucose can't enter the cells, meaning that they don't have the energy to function properly.</li><br><li>Weight loss - Due to the lack of insulin entering cells, they begin to starve. This makes the body break down tissue (especially fat and muscle) to gain energy alternatively. Not to mention that the polyuria causes large amounts of fluid to be lost, decreasing water weight.</li><br><br>These are the main systems but there are a few more less common ones:<br><br><li>Blurry vision - In type 2 diabetes there is higher blood sugar, this includes in the lens of the eye. Water likes balance and so moves from an area of low concentration of glucose (the aqueous humour in this case) to the area of high concentration of glucose (the lens / retina) to equivocate the solute concentrations.</li><br><li>Fruity / sweet smelling breath - When Glucose cannot enter cells the body begins to perform ketogenesis, which starts breaking down fat cells (adipocytes). This produces ketones, an alternate source of energy for the body, which create that fruity smell, which may be a bit like nail varnish.</li><br><li>Wounds and cuts taking longer to heal - If you have type 2 diabetes, you might notice that any injuries you happen to get take longer to heal. This is because it causes narrowing of blood vessels, reducing circulation and as such access to oxygen and nutrients. Not to mention that the higher blood sugar impairs white blood cells, which help make new blood vessels and collagen.</li><br><li>Increased infections - Type 2 diabetes can cause genital itching, and recurring yeast / thrush infections. This is because the higher sugar in your blood makes it easier to grow</li><br><br>These symptoms are very similar to type 1 diabetes, but they tend to develop later in life and slower, also they are not present in all cases.";
+                        }
+                        else if (element.id === 'top_middle') {
+                            document.getElementById("title").innerHTML = "Treatment and related conditions.";
+                            document.getElementById("description").innerHTML = "<br><br><b><u>Treatment</u></b><br><br>In the chapters on Type 1 and type 2 diabetes I described the main symptoms of diabetes mellitus that physicians will look for. These symptoms are effectively the same, as both are caused by lack of, or ineffective, insulin. The main differences lay in cause and treatment. Along with previously mentioned symptoms, the hallmark sign of diabetes mellitus is glucosuria, the abnormal presence of glucose in urine. This is where the name comes from, as it gives the urine a distinctly sweet honey like smell, and the Latin word for honey is 'mel'. They may also detect it with a blood test / finger prick test, which will look for excess blood sugar (hyperglycaemia), or strange abundance of insulin.<br><br>When it comes to treating type 1 diabetes, you have to consider how to treat hypers and hypos, including how to detect them.<br><br><u>Hypo's</u> <br><br>In Diabetes mellitus, hypo is short for periods of hypoglycaemia, where blood sugar is very low. Hypo's are associated with: <br><br><li>feeling shaky</li><br><li>Confusion</li><br><li>anxiety/irritability</li><br><li>paleness</li><br><li>Palpitations/fast pulse</li><br><li>Tingly lips</li><br><br>while other symptoms exist, these are just a few examples. Hypo's are most likely caused by the medication for diabetes, as taking too much insulin can significantly reduce blood sugar. Ways to prevent hypo's, keeping a continuous glucose monitor on (not prevention but detection but it still kind of counts), avoid stress / anxiety, try to limit drinking, don't take too much insulin, making sure to eat sufficient carbohydrates.<br><br>Hypo's can be treated by taking simple fast acting carbohydrates (monosaccharaides / disaccharides / sugars). There are many ways to do this but the most reliable is likely five glucose / dextrose tablets, taken orally.<br><br><u>Hypers</u><br><br>A hyper is a period of hyperglycaemia (abnormally high blood glucose / sugar). Some of their most common symptoms are: <br><br><li>excessive need to pass urine</li><br><li>excessive thirst</li><br><li>fatigue</li><br><li>headaches</li><br><li>blurred vision</li><br>Other symptoms exist, and it is different for each person, these are just some general ones. Hypers can be prevented by making sure to keep on top of medication, not eating too many carbohydrates, and not overtreating hypo's (follow guidelines set out by NHS and diabetes.org).<br><br>Hypers can be treated by increasing dietary fibre, and using a continuous glucose monitor (more detection than treatment) but ultimately the best way is to use diabetes medication such as insulin (this may not work for type 2 diabetes).<br><br><u>General</u><br><br>Treating both types of Diabetes Mellitus is, at it's core, a balancing act. You have to balance your blood sugar by not eating too many carbohydrates, not taking too much medication, while being careful not to go in the opposite direction and eat too few carbohydrates or too little medication. Type 1 diabetes benefits from insulin therapy, this can be done via several subcutaneous injection, or an insulin pump, and treats/prevents hypers. Type 2 diabetics however may have to take medication which reduces glucose absorbed from food such as Metformin. Both types of diabetes can do with continuous glucose monitors, which continuously monitor their blood glucose throughout the day.<br><br><b><u>Related conditions</u></b><br><br><u>Diabetic ketoacidosis</u><br><br>Diabetic Ketoacidosis (DKA) occurs when cells begin to starve. A lack of insulin, or reactivity to insulin, means that the glucose channels can't open. This means that glucose can't enter the cell, respiration can't occur, and energy / ATP can't be acquired. Because of this the body begins to break down fat cells (adipocytes) in a process called Ketogenesis (ketone making).<br><br> Ketogenesis starts by breaking down of adipocyte triglycerides into three fatty acids and a glycerol molecule, which are then carried to the liver (and other body parts) by albumen, a globular blood protein. Beta oxidation of these fatty acids forms Acetyl CoA (co-enzyme A), 2 of which react (which is catalysed by thiolase enzymes) to form Acetoacetyl CoA. Acetoacetyl CoA will then react with acetylCoA to form HMG-CoA (3-hydroxy-3-methylglutaryl-CoA), this is catalysed by HMG-CoA synthase. From this acetoacetate is formed and Acetyl-CoA is formed as a secondary metabolite, this is catalysed by HMG-CoA lyase. From Acetoacetate acetone and other ketone bodies can be produced. These are then carried throughout the body, before converting into Acetyl CoA and entering the Krebs cycle.<br><br> These ketone bodies are slightly acidic (and in acetones case smell like fruit), and a high enough quantity may make the blood significantly acidic. This can degrade enzymes of the body and damage tissue, and eventually become fatal. The symptoms of diabetic ketoacidosis include:<br><br><li>thirst</li><li>Polyuria</li><li>stomach pain/ache</li><li>diarrhoea</li><li>being out of breath</li><li><b>Fruit smelling breath (like pear sweets or nail varnish)</b></li><li>confusion/tiredness</li><li>blurry vision</li><br><br>DKA can be tested for using a urine stick, if you take one of these than 2+ or higher means you need to call 999 or go at A&e As soon as possible. You will most likely be treated using insulin (if it is an emergency situation it will be injected intravenously instead of subcutaneously) and given an IV bag.<br><br><u>Diabetic Neuropathy</u><br><br>Diabetic neuropathy is when diabetes causes damages to nerves and nerve  cells. There are four main types of diabetic neuropathy. These are: Diabetic peripheral neuropathy, Diabetic sensory neuropathy, Diabetic Autonomic neuropathy and Diabetic motor neuropathy. Diabetic neuropathy may present as one, or a mix of these<br><br>Peripheral diabetic neuropathy is the most common type, and is defined by damage to nerves outside of the CNS (central nervous system, the brain and spine). It's affects are most prominent in the hands and feet, which may lose feeling or motor ability<br><br>Diabetic sensory neuropathy involves damage to sensory nerves which tell us how things feel, smell, sound, look etc, by carrying those messages to the brain from skin, bone, muscle etc. It most commonly affects the feet and legs, but may also develop in arms and hands (but less often). Sensory neuropathy may involve:<br><br><li>tingling/numbness</li><li>loss of pain feelings</li><li>Loss of feelings of temperature</li><li>Loss of coordination, and loss of joint proprioception</li><li>burning / shooting pain</li><br><br>Autonomic neuropathy is damage of nerves which are associated with glands and organs, leading to them having major malfunction. Common (for this type of neuropathy) examples include:<br><br><li>Gastroparesis - food being unable to travel through GI tract, leading to bloating, diarrhoea and/or constipation</li><li>Urinary incontinence (loss of bladder control)</li><li>Irregular heart beats</li></li>Issues with sweating (excessive, at certain times, or inability to do so</li><li>Impotence</li><li>Dizziness when trying to stand up</li><br><br>Motor neuropathy is loss of nerves which are linked to movement, which can lead to weakening, loss of control over and atrophy of muscle tissue.<br><br>Diabetic neuropathy is caused by high blood sugar damaging the blood vessels which supply nutrients and oxygen to nerve cells. High blood sugar and triglycerides also work to damage the nerves themselves. One of the ways in which this happens is that high blood sugar encourages the production of free radicals, which add oxidative stress<br><br><u>Diabetic retinopathy</u><br><br>Diabetic retinopathy is a complication of diabetes, where excess blood sugar causes damage to cells in the retina (back of the eye) which are important for vision. It has four stages: Background retinopathy, pre-proliferative retinopathy, proliferative retinopathy and diabetic maculopathy.<br><br>Background retinopathy is the first stage, and is known for the formation of tiny bulges (microaneurysms) in the retina of both eyes. These microaneurysms will leak small amounts of blood, at this stage vision is not affected but it increases chances of vision being harmed in future. You will not be advised treatment but should take preventative measures. It can be detected by dot bleeding and blot haemorrhages seen when using an ophthalmoscope.<br><br>The second stage is pre-proliferative retinopathy, which is like a more severe and frequent version of the first stage, and has a high risk of altering your vision. You may be prescribed monitoring scans every 12, 9, 6, or 3 months.<br><br>proliferative retinopathy involves significant bleeding, along with the formation of scar tissue and new blood vessels within the retina. This can even lead to retinal detachment where the retina moves away from the rest of the eye. There is a very high risk of losing your vision at this stage. You will be prescribed more frequent scans and offered vision stabilising treatment.<br><br>The final stage is diabetic maculopathy. This means that the central part of the retina (named the macula) has leaking of it's blood vessels. This leads to a high risk of severe vision damage, testing will become frequent, and you may be prescribed a detailed OCT test. You will also talk to a specialist.<br><br>Diabetic retinopathy can be treated using laser therapy, to destroy nascent blood vessels in the retina and to stabilise maculopathy. Eye injections (often of anti-VEGF) to help with severe maculopathy by preventing the formation of new blood vessels. If anti-VEGF injections don't work, you may receive a steroid (specifically dexamethasone) implant to reduce swelling of the eye. You may also receive eye surgery to help drain the vitreous humour (transparent jelly like substance behind the eye), if there is too much blood or too much scar tissue.<br><br>";
+
+                        }
+                        else if (element.id === 'bottom_middle') {
+                            document.getElementById("title").innerHTML = "Further reading";
+                            document.getElementById("description").innerHTML = "<br><br><a href='https://www.nhs.uk/conditions/diabetes/'>NHS website</a><br><br><a href='https://www.diabetes.org.uk/'>Diabetes UK website</a>";
+                        }
+                    }, 500)
+                }
+        </script>
+       
+        
+        
+
+        
+    </body>
+</html>
